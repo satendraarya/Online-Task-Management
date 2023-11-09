@@ -1,0 +1,125 @@
+/* src/components/FlipLoginRegistrationForm.css */
+
+/* body {
+  background-image: url('https://img.freepik.com/free-photo/airport-terminal_1417-1455.jpg?w=1060&t=st=1699506529~exp=1699507129~hmac=e5776dbec96a9daad29130c492b82523029be6182595934e84d95203f7b0da16');
+  filter: blur(0.01px);
+  background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+} */
+
+.main-body-container {
+  background-image: url('https://i.pinimg.com/originals/82/ec/e1/82ece1c8bae6cd308ece8381a9c3dc3f.jpg');
+    background-size: cover; /* Adjust the background-size as needed */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* This property ensures the background image stays fixed as you scroll */
+    height: 100vh; /* Set the container to cover the full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.flip-container {
+    perspective: 1000px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 100px;
+    
+  }
+  
+  .flip-form {
+    
+    height: auto;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 2.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3vh;
+    backdrop-filter: blur(20px);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+                -10px 10px 20px rgba(0, 0, 0, 0.2),
+                10px -10px 20px rgba(0, 0, 0, 0.2),
+                -10px -10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .login-form, .registration-form {
+    width: 100%;
+    /* background-color: #dcdcdc;  */
+    background-color: rgba(149, 172, 194, 0.692); 
+  }
+  
+  .login-form {
+    transform: rotateY(0deg);
+  }
+  
+  .registration-form {
+    transform: rotateY(180deg);
+  }
+
+  .registration-button {
+  transform: rotateY(0deg); /* Rotate the button text back to normal */
+}
+
+  
+  .registration-form * {
+    transform: rotateY(180deg); /* Rotate the content inside the registration form */
+    
+  }
+
+  .registration-button {
+    transform: rotateY(0deg); /* Rotate the "Register" button back to normal */
+  }
+  
+  h2 {
+    margin: 0 0 20px 0;
+  }
+  
+  form {
+    width: 80%;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    margin-left: -10px;
+  }
+  
+  button {
+    background-color: rgb(3, 32, 61);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 40%;
+    margin-top: 10px;
+    margin-left: 60px;
+  }
+  
+  .toggle-form {
+    cursor: pointer;
+    color: black;
+    /* color: #007BFF; */
+    
+    /* text-decoration: underline; */
+    margin-top: 15px;
+  }
+  
