@@ -5,7 +5,7 @@ const createTask = async (req, res) => {
     const user = req.id;
 
     try {
-        const task = new Task({ title, discription, dueDate, priority, status, user });
+        const task = new Task({ title, description, dueDate, priority, status, user });
         await task.save();
         return res.status(201).json({ message: "Task created successfully", task });
     } catch (err) {

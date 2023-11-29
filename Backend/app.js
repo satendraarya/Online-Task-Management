@@ -9,9 +9,11 @@ const cors = require("cors");
 require('dotenv').config()
 
 const app = express();
+
+// Use middleware
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
-app.use(express.json());
 app.use(cookieParser());
+app.use(express.json());
 
 // DB connection
 mongoose
@@ -30,6 +32,7 @@ mongoose
 });
 
 
+// Routes
 app.use("/api", router);
 app.use('/api', taskRouter);
 

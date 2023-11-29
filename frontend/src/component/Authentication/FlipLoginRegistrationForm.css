@@ -13,12 +13,13 @@
   background-image: url('https://i.pinimg.com/originals/82/ec/e1/82ece1c8bae6cd308ece8381a9c3dc3f.jpg');
     background-size: cover; /* Adjust the background-size as needed */
     background-repeat: no-repeat;
-    background-attachment: fixed; /* This property ensures the background image stays fixed as you scroll */
-    height: 100vh; /* Set the container to cover the full viewport height */
+    background-attachment: fixed; 
+    height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    /* filter: blur(0.1px); */
 }
 
 .flip-container {

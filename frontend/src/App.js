@@ -2,6 +2,8 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import FlipLoginRegistrationForm from './component/Authentication/FlipLoginRegistrationForm';
 import TaskManagement from './component/TaskManagement/TaskManagement';
+import axios from 'axios';
+axios.defaults.withCredentials = true;
 
 function App() {
   return (

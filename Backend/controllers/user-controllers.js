@@ -63,7 +63,7 @@ const login = async (req, res) => {
     }
     // create and sign token
     const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET_KEY, {
-        expiresIn: '7d',
+        expiresIn: '35s',
     });
     console.log("Generated Token\n", token);
 
@@ -74,7 +74,7 @@ const login = async (req, res) => {
     { 
         path: "/",
         httpOnly: true,
-        expires: new Date(Date.now() + 1000 * 7 * 24 * 24 * 60), // 7d
+        expires: new Date(Date.now() + 1000 * 30), // 30s
         sameSite: "lax",
     });
     return res
@@ -84,15 +84,19 @@ const login = async (req, res) => {
 
 // ........... VerifyToken ..............
 const verifyToken = (req, res, next) => {
-    if (!req.headers.cookie) {
-        return res.status(404).json({ message: "No token found" });
-    }
-    const token = req.headers.cookie.split("=")[1];
+    // if (!req.headers.cookie) {
+    //     return res.status(404).json({ message: "No token found" });
+    // }
+    // const token = req.headers.cookie.split("=")[1];
 
+    // if (!token) {
+    //     return res.status(404).json({ message: "No token found" });
+    // }
+    const cookies = req.headers.cookie;
+    const token = cookies.split("=")[1];
     if (!token) {
-        return res.status(404).json({ message: "No token found" });
+      res.status(404).json({ message: "No token found" });
     }
-
     jwt.verify(String(token), process.env.JWT_SECRET_KEY, (err, user) => {
         if (err) {
             return res.status(400).json({ message: "Invalid Token" });
@@ -122,26 +126,29 @@ const getUser = async (req, res, next) => {
 const refreshToken = (req, res, next) => {
     const cookies = req.headers.cookie;
     const prevToken = cookies.split("=")[1];
+
     if (!prevToken) {
         return res.status(400).json({ message: "Couldn't find token" });
     }
+
     jwt.verify(String(prevToken), process.env.JWT_SECRET_KEY, (err, user) => {
         if (err) {
-            console.log(err);
+            console.error('Token verification failed:', err);
             return res.status(403).json({ message: "Authentication failed" });
         }
+
         res.clearCookie(`${user.id}`);
-        req.cookies[`${user.id}`] = "";
 
-        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, {
-            expiresIn: "7d",
+        const newToken = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, {
+            expiresIn: "35s",
         });
-        console.log("Regenerated Token\n", token);
 
-        res.cookie(String(user.id), token, {
+        console.log("Regenerated Token\n", newToken);
+
+        res.cookie(String(user.id), newToken, {
             path: "/",
             httpOnly: true,
-            expires: new Date(Date.now() + 1000 * 7 * 24 * 24 * 60),
+            expires: new Date(Date.now() + 1000 * 30), // 30s
             sameSite: "lax",
         });
 
@@ -166,8 +173,6 @@ const logout = (req, res, next) => {
       return res.status(200).json({ message: "Successfully Logged Out" });
     });
   };
-
-
 
 
 

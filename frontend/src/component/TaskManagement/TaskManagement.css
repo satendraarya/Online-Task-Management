@@ -1,0 +1,103 @@
+/* src/components/TaskManagement/TaskManagement.css */
+.container {
+    max-width: 60%;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .task-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    background-image: url('https://marketplace.canva.com/EAD2962NKnQ/2/0/1600w/canva-rainbow-gradient-pink-and-purple-virtual-background-_Tcjok-d9b4.jpg'); 
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+
+  h1.card-title {
+    justify-content: center;
+    display: flex;
+}
+  
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .task-form {
+    width: 124%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    margin-left: auto;
+    background-color: rgba(254, 249, 249, 0.795);
+  }
+
+  .create-task-button {
+    background-color: rgb(3, 32, 61);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 40%;
+    margin-top: 10px;
+    margin-left: 40%;
+  }
+  
+
+  .task-button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .task-button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Styles for the task list */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  li p {
+    margin: 5px 0;
+  }
+  
+  /* Styles for the edit, delete, and status change buttons */
+  li button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  li button:hover {
+    background-color: #ddd;
+  }
+  

@@ -16,7 +16,7 @@ const router = express.Router();
 
 router.post('/tasks', verifyToken, createTask);
 router.get('/tasks', verifyToken, getTasks);
-router.put('tasks/:taskId', verifyToken, updateTask);
+router.put('/tasks/:taskId', verifyToken, updateTask);
 router.delete('/tasks/:taskId', verifyToken, deleteTask);
 router.get('/tasks/filter', verifyToken, filterAndSortTasks);
 router.post('/assign-task', verifyToken, checkAdminRole, assignTask);
